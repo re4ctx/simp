@@ -92,7 +92,7 @@ include 'template/header.php';
                                         <a href="" class="btn btn-icon btn-1 btn-info" type="button">
                                             <span class="btn-inner--icon"><i class="ni ni-ruler-pencil"></i></span>
                                         </a>
-                                        <a href="controller/artikel/hapus.php?id=<?php echo $d['id_artikel']; ?>" class="btn btn-icon btn-1 btn-danger" type="button">
+                                        <a href="controller/artikel/hapus.php?id_artikel=<?php echo $d['id_artikel']; ?>" class="btn btn-icon btn-1 btn-danger" type="button" onclick="konfirmasi()">
                                             <span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span>
                                         </a>
                                     </td>
@@ -113,3 +113,29 @@ include 'template/header.php';
 <?php
 include 'template/footer.php';
 ?>
+
+<script>
+
+    function konfirmasi(){
+        konfirmasi=confirm("Apakah anda yakin ingin menghapus gambar ini?")
+        document.writeln(konfirmasi)
+    }
+
+    $(document).on("click", "#pilih_gambar", function() {
+    var file = $(this).parents().find(".file");
+    file.trigger("click");
+    });
+
+    $('input[type="file"]').change(function(e) {
+    var fileName = e.target.files[0].name;
+    $("#file").val(fileName);
+
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        // get loaded data and render thumbnail.
+        document.getElementById("preview").src = e.target.result;
+    };
+    // read the image file as a data URL.
+    reader.readAsDataURL(this.files[0]);
+    });
+</script>
