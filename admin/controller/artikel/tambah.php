@@ -6,13 +6,14 @@
         //Cek apakah ada kiriman form dari method post
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+            $judul = $_POST['judul'];
+            
             $ekstensi_diperbolehkan	= array('png','jpg');
             $gambar = $_FILES['gambar']['name'];
             $x = explode('.', $gambar);
             $ekstensi = strtolower(end($x));
             $file_tmp = $_FILES['gambar']['tmp_name'];
-
-            $judul = $_POST['judul'];
+            
             $konten = $_POST['konten'];
 
             if (!empty($gambar)){
@@ -34,7 +35,7 @@
                     
                 }
             }else {
-                $gambar="bank_default.png";
+                echo "Please Isi betul betul";
             }
         }
 
