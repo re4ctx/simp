@@ -30,16 +30,18 @@ include 'template/header.php';
             <form method="post" action="controller/artikel/tambah.php" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Judul</label>
-                    <input type="text" name="judul" class="form-control" id="exampleFormControlInput1" placeholder="-">
+                    <input type="text" name="judul" class="form-control" id="exampleFormControlInput1" placeholder="-" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Upload Gambar</label>
-                    <input type="file" name="gambar" class="form-control" id="exampleFormControlInput1">
+                    <input type="file" class="form-control" id="uploadImage1"  onchange="PreviewImage(1)" name='gambar' required>
+                    <br>
+                    <img src="controller/artikel/gambar/<?php echo $d['gambar']; ?>" id="uploadPreview1" width="585" height="330">
                 </div>
-                <img src="" id="preview" class="img-thumbnail">
+                
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Konten</label>
-                    <textarea class="form-control" name="konten" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" name="konten" id="exampleFormControlTextarea1" rows="3" required></textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit" name="btn_tambah" class="btn btn-primary">Tambah</button>
@@ -79,7 +81,7 @@ include 'template/header.php';
                                         </div>
                                     </td>
                                     <td>
-                                        <img class="text-sm font-weight-bold mb-0" src="controller/artikel/gambar/><?php echo $d['gambar']; ?>">
+                                        <img class="text-sm font-weight-bold mb-0" src="controller/artikel/gambar/<?php echo $d['gambar']; ?>" width="58.5" height="33">
                                     </td>
                                     <td>
                                         <p class="text-sm font-weight-bold mb-0"><?php echo $d['konten']; ?></p>
@@ -89,7 +91,7 @@ include 'template/header.php';
                                         Dosis Vaksin 2 : 50 (AstraZenaca)
                                     </td> -->
                                     <td class="align-middle">
-                                        <a href="" class="btn btn-icon btn-1 btn-info" type="button">
+                                        <a href="edit-artikel.php?id_artikel=<?php echo $d['id_artikel']; ?>" class="btn btn-icon btn-1 btn-info" type="button">
                                             <span class="btn-inner--icon"><i class="ni ni-ruler-pencil"></i></span>
                                         </a>
                                         <a href="controller/artikel/hapus.php?id_artikel=<?php echo $d['id_artikel']; ?>" class="btn btn-icon btn-1 btn-danger" type="button" onclick="konfirmasi()">
@@ -138,4 +140,17 @@ include 'template/footer.php';
     // read the image file as a data URL.
     reader.readAsDataURL(this.files[0]);
     });
+
+
+    //upload gambar dengan preview 
+    function PreviewImage(no) {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadImage"+no).files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview"+no).src = oFREvent.target.result;
+        };
+    }
+
 </script>
+
