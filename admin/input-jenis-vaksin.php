@@ -8,10 +8,6 @@ include 'template/header.php';
             <h4>Input Jenis Vaksin</h4>
             <form method="post" action="controller/jenis_vaksin/tambah.php">
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">ID Vaksin</label>
-                    <input type="text" name="id" class="form-control" id="exampleFormControlInput1" placeholder="Silakan Masukkan ID Vaksin" required>
-                </div>
-                <div class="form-group">
                     <label for="exampleFormControlInput1">Nama Vaksin</label>
                     <input type="text" name="jenis" class="form-control" id="exampleFormControlInput1" placeholder="Silakan Masukkan Nama Vaksin" required>
                 </div>
