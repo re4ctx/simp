@@ -9,15 +9,15 @@ include 'template/header.php';
             <form method="post" action="controller/lokasi_faskes/tambah.php">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Tempat</label>
-                    <input type="text" name="tempat" class="form-control" id="exampleFormControlInput1" placeholder="Silakan masukkan nama tempat" required>
+                    <input type="text" name="tempat" class="form-control" id="exampleFormControlInput1" placeholder="-">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Alamat</label>
-                    <textarea class="form-control" name="alamat" id="exampleFormControlTextarea1" rows="3" required>Silakan masukkan alamat</textarea>
+                    <textarea class="form-control" name="alamat" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">No HP</label>
-                    <input type="tel" name="nohp" class="form-control" pattern="[0-9]+" id="exampleFormControlInput1" placeholder="Silakan tambahkan nomor handphone" required>
+                    <input type="tel" name="nohp" class="form-control" pattern="[0-9]+" id="exampleFormControlInput1" placeholder="-">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Tambah</button>
@@ -67,7 +67,7 @@ include 'template/header.php';
                                         Dosis Vaksin 2 : 50 (AstraZenaca)
                                     </td> -->
                                     <td class="align-middle">
-                                        <a href="" class="btn btn-icon btn-1 btn-info" type="button">
+                                        <a href="edit-lokasi-faskes.php?id=<?php echo $d['id_faskes']; ?>" class="btn btn-icon btn-1 btn-info" type="button">
                                             <span class="btn-inner--icon"><i class="ni ni-ruler-pencil"></i></span>
                                         </a>
                                         <a href="controller/lokasi_faskes/hapus.php?id=<?php echo $d['id_faskes']; ?>" class="btn btn-icon btn-1 btn-danger" type="button">
