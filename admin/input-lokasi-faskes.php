@@ -9,15 +9,15 @@ include 'template/header.php';
             <form method="post" action="controller/lokasi_faskes/tambah.php">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Tempat</label>
-                    <input type="text" name="tempat" class="form-control" id="exampleFormControlInput1" placeholder="-">
+                    <input type="text" name="tempat" class="form-control" id="exampleFormControlInput1" placeholder="Silakan masukkan nama tempat" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Alamat</label>
-                    <textarea class="form-control" name="alamat" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" name="alamat" id="exampleFormControlTextarea1" rows="3" required>Silakan masukkan alamat</textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">No HP</label>
-                    <input type="tel" name="nohp" class="form-control" pattern="[0-9]+" id="exampleFormControlInput1" placeholder="-">
+                    <input type="tel" name="nohp" class="form-control" pattern="[0-9]+" id="exampleFormControlInput1" placeholder="Silakan tambahkan nomor handphone" required>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Tambah</button>
