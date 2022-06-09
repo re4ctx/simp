@@ -1,530 +1,452 @@
+<?php
+include 'config/config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap5.min.css">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Vaccinely - Home</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/splide.min.css">
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Bootslander - v4.7.2
+  * Template URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
 <body>
-    <table id="example" class="table table-striped" style="width:100%">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011-04-25</td>
-                <td>$320,800</td>
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011-07-25</td>
-                <td>$170,750</td>
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009-01-12</td>
-                <td>$86,000</td>
-            </tr>
-            <tr>
-                <td>Cedric Kelly</td>
-                <td>Senior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td>22</td>
-                <td>2012-03-29</td>
-                <td>$433,060</td>
-            </tr>
-            <tr>
-                <td>Airi Satou</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>33</td>
-                <td>2008-11-28</td>
-                <td>$162,700</td>
-            </tr>
-            <tr>
-                <td>Brielle Williamson</td>
-                <td>Integration Specialist</td>
-                <td>New York</td>
-                <td>61</td>
-                <td>2012-12-02</td>
-                <td>$372,000</td>
-            </tr>
-            <tr>
-                <td>Herrod Chandler</td>
-                <td>Sales Assistant</td>
-                <td>San Francisco</td>
-                <td>59</td>
-                <td>2012-08-06</td>
-                <td>$137,500</td>
-            </tr>
-            <tr>
-                <td>Rhona Davidson</td>
-                <td>Integration Specialist</td>
-                <td>Tokyo</td>
-                <td>55</td>
-                <td>2010-10-14</td>
-                <td>$327,900</td>
-            </tr>
-            <tr>
-                <td>Colleen Hurst</td>
-                <td>Javascript Developer</td>
-                <td>San Francisco</td>
-                <td>39</td>
-                <td>2009-09-15</td>
-                <td>$205,500</td>
-            </tr>
-            <tr>
-                <td>Sonya Frost</td>
-                <td>Software Engineer</td>
-                <td>Edinburgh</td>
-                <td>23</td>
-                <td>2008-12-13</td>
-                <td>$103,600</td>
-            </tr>
-            <tr>
-                <td>Jena Gaines</td>
-                <td>Office Manager</td>
-                <td>London</td>
-                <td>30</td>
-                <td>2008-12-19</td>
-                <td>$90,560</td>
-            </tr>
-            <tr>
-                <td>Quinn Flynn</td>
-                <td>Support Lead</td>
-                <td>Edinburgh</td>
-                <td>22</td>
-                <td>2013-03-03</td>
-                <td>$342,000</td>
-            </tr>
-            <tr>
-                <td>Charde Marshall</td>
-                <td>Regional Director</td>
-                <td>San Francisco</td>
-                <td>36</td>
-                <td>2008-10-16</td>
-                <td>$470,600</td>
-            </tr>
-            <tr>
-                <td>Haley Kennedy</td>
-                <td>Senior Marketing Designer</td>
-                <td>London</td>
-                <td>43</td>
-                <td>2012-12-18</td>
-                <td>$313,500</td>
-            </tr>
-            <tr>
-                <td>Tatyana Fitzpatrick</td>
-                <td>Regional Director</td>
-                <td>London</td>
-                <td>19</td>
-                <td>2010-03-17</td>
-                <td>$385,750</td>
-            </tr>
-            <tr>
-                <td>Michael Silva</td>
-                <td>Marketing Designer</td>
-                <td>London</td>
-                <td>66</td>
-                <td>2012-11-27</td>
-                <td>$198,500</td>
-            </tr>
-            <tr>
-                <td>Paul Byrd</td>
-                <td>Chief Financial Officer (CFO)</td>
-                <td>New York</td>
-                <td>64</td>
-                <td>2010-06-09</td>
-                <td>$725,000</td>
-            </tr>
-            <tr>
-                <td>Gloria Little</td>
-                <td>Systems Administrator</td>
-                <td>New York</td>
-                <td>59</td>
-                <td>2009-04-10</td>
-                <td>$237,500</td>
-            </tr>
-            <tr>
-                <td>Bradley Greer</td>
-                <td>Software Engineer</td>
-                <td>London</td>
-                <td>41</td>
-                <td>2012-10-13</td>
-                <td>$132,000</td>
-            </tr>
-            <tr>
-                <td>Dai Rios</td>
-                <td>Personnel Lead</td>
-                <td>Edinburgh</td>
-                <td>35</td>
-                <td>2012-09-26</td>
-                <td>$217,500</td>
-            </tr>
-            <tr>
-                <td>Jenette Caldwell</td>
-                <td>Development Lead</td>
-                <td>New York</td>
-                <td>30</td>
-                <td>2011-09-03</td>
-                <td>$345,000</td>
-            </tr>
-            <tr>
-                <td>Yuri Berry</td>
-                <td>Chief Marketing Officer (CMO)</td>
-                <td>New York</td>
-                <td>40</td>
-                <td>2009-06-25</td>
-                <td>$675,000</td>
-            </tr>
-            <tr>
-                <td>Caesar Vance</td>
-                <td>Pre-Sales Support</td>
-                <td>New York</td>
-                <td>21</td>
-                <td>2011-12-12</td>
-                <td>$106,450</td>
-            </tr>
-            <tr>
-                <td>Doris Wilder</td>
-                <td>Sales Assistant</td>
-                <td>Sydney</td>
-                <td>23</td>
-                <td>2010-09-20</td>
-                <td>$85,600</td>
-            </tr>
-            <tr>
-                <td>Angelica Ramos</td>
-                <td>Chief Executive Officer (CEO)</td>
-                <td>London</td>
-                <td>47</td>
-                <td>2009-10-09</td>
-                <td>$1,200,000</td>
-            </tr>
-            <tr>
-                <td>Gavin Joyce</td>
-                <td>Developer</td>
-                <td>Edinburgh</td>
-                <td>42</td>
-                <td>2010-12-22</td>
-                <td>$92,575</td>
-            </tr>
-            <tr>
-                <td>Jennifer Chang</td>
-                <td>Regional Director</td>
-                <td>Singapore</td>
-                <td>28</td>
-                <td>2010-11-14</td>
-                <td>$357,650</td>
-            </tr>
-            <tr>
-                <td>Brenden Wagner</td>
-                <td>Software Engineer</td>
-                <td>San Francisco</td>
-                <td>28</td>
-                <td>2011-06-07</td>
-                <td>$206,850</td>
-            </tr>
-            <tr>
-                <td>Fiona Green</td>
-                <td>Chief Operating Officer (COO)</td>
-                <td>San Francisco</td>
-                <td>48</td>
-                <td>2010-03-11</td>
-                <td>$850,000</td>
-            </tr>
-            <tr>
-                <td>Shou Itou</td>
-                <td>Regional Marketing</td>
-                <td>Tokyo</td>
-                <td>20</td>
-                <td>2011-08-14</td>
-                <td>$163,000</td>
-            </tr>
-            <tr>
-                <td>Michelle House</td>
-                <td>Integration Specialist</td>
-                <td>Sydney</td>
-                <td>37</td>
-                <td>2011-06-02</td>
-                <td>$95,400</td>
-            </tr>
-            <tr>
-                <td>Suki Burks</td>
-                <td>Developer</td>
-                <td>London</td>
-                <td>53</td>
-                <td>2009-10-22</td>
-                <td>$114,500</td>
-            </tr>
-            <tr>
-                <td>Prescott Bartlett</td>
-                <td>Technical Author</td>
-                <td>London</td>
-                <td>27</td>
-                <td>2011-05-07</td>
-                <td>$145,000</td>
-            </tr>
-            <tr>
-                <td>Gavin Cortez</td>
-                <td>Team Leader</td>
-                <td>San Francisco</td>
-                <td>22</td>
-                <td>2008-10-26</td>
-                <td>$235,500</td>
-            </tr>
-            <tr>
-                <td>Martena Mccray</td>
-                <td>Post-Sales support</td>
-                <td>Edinburgh</td>
-                <td>46</td>
-                <td>2011-03-09</td>
-                <td>$324,050</td>
-            </tr>
-            <tr>
-                <td>Unity Butler</td>
-                <td>Marketing Designer</td>
-                <td>San Francisco</td>
-                <td>47</td>
-                <td>2009-12-09</td>
-                <td>$85,675</td>
-            </tr>
-            <tr>
-                <td>Howard Hatfield</td>
-                <td>Office Manager</td>
-                <td>San Francisco</td>
-                <td>51</td>
-                <td>2008-12-16</td>
-                <td>$164,500</td>
-            </tr>
-            <tr>
-                <td>Hope Fuentes</td>
-                <td>Secretary</td>
-                <td>San Francisco</td>
-                <td>41</td>
-                <td>2010-02-12</td>
-                <td>$109,850</td>
-            </tr>
-            <tr>
-                <td>Vivian Harrell</td>
-                <td>Financial Controller</td>
-                <td>San Francisco</td>
-                <td>62</td>
-                <td>2009-02-14</td>
-                <td>$452,500</td>
-            </tr>
-            <tr>
-                <td>Timothy Mooney</td>
-                <td>Office Manager</td>
-                <td>London</td>
-                <td>37</td>
-                <td>2008-12-11</td>
-                <td>$136,200</td>
-            </tr>
-            <tr>
-                <td>Jackson Bradshaw</td>
-                <td>Director</td>
-                <td>New York</td>
-                <td>65</td>
-                <td>2008-09-26</td>
-                <td>$645,750</td>
-            </tr>
-            <tr>
-                <td>Olivia Liang</td>
-                <td>Support Engineer</td>
-                <td>Singapore</td>
-                <td>64</td>
-                <td>2011-02-03</td>
-                <td>$234,500</td>
-            </tr>
-            <tr>
-                <td>Bruno Nash</td>
-                <td>Software Engineer</td>
-                <td>London</td>
-                <td>38</td>
-                <td>2011-05-03</td>
-                <td>$163,500</td>
-            </tr>
-            <tr>
-                <td>Sakura Yamamoto</td>
-                <td>Support Engineer</td>
-                <td>Tokyo</td>
-                <td>37</td>
-                <td>2009-08-19</td>
-                <td>$139,575</td>
-            </tr>
-            <tr>
-                <td>Thor Walton</td>
-                <td>Developer</td>
-                <td>New York</td>
-                <td>61</td>
-                <td>2013-08-11</td>
-                <td>$98,540</td>
-            </tr>
-            <tr>
-                <td>Finn Camacho</td>
-                <td>Support Engineer</td>
-                <td>San Francisco</td>
-                <td>47</td>
-                <td>2009-07-07</td>
-                <td>$87,500</td>
-            </tr>
-            <tr>
-                <td>Serge Baldwin</td>
-                <td>Data Coordinator</td>
-                <td>Singapore</td>
-                <td>64</td>
-                <td>2012-04-09</td>
-                <td>$138,575</td>
-            </tr>
-            <tr>
-                <td>Zenaida Frank</td>
-                <td>Software Engineer</td>
-                <td>New York</td>
-                <td>63</td>
-                <td>2010-01-04</td>
-                <td>$125,250</td>
-            </tr>
-            <tr>
-                <td>Zorita Serrano</td>
-                <td>Software Engineer</td>
-                <td>San Francisco</td>
-                <td>56</td>
-                <td>2012-06-01</td>
-                <td>$115,000</td>
-            </tr>
-            <tr>
-                <td>Jennifer Acosta</td>
-                <td>Junior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td>43</td>
-                <td>2013-02-01</td>
-                <td>$75,650</td>
-            </tr>
-            <tr>
-                <td>Cara Stevens</td>
-                <td>Sales Assistant</td>
-                <td>New York</td>
-                <td>46</td>
-                <td>2011-12-06</td>
-                <td>$145,600</td>
-            </tr>
-            <tr>
-                <td>Hermione Butler</td>
-                <td>Regional Director</td>
-                <td>London</td>
-                <td>47</td>
-                <td>2011-03-21</td>
-                <td>$356,250</td>
-            </tr>
-            <tr>
-                <td>Lael Greer</td>
-                <td>Systems Administrator</td>
-                <td>London</td>
-                <td>21</td>
-                <td>2009-02-27</td>
-                <td>$103,500</td>
-            </tr>
-            <tr>
-                <td>Jonas Alexander</td>
-                <td>Developer</td>
-                <td>San Francisco</td>
-                <td>30</td>
-                <td>2010-07-14</td>
-                <td>$86,500</td>
-            </tr>
-            <tr>
-                <td>Shad Decker</td>
-                <td>Regional Director</td>
-                <td>Edinburgh</td>
-                <td>51</td>
-                <td>2008-11-13</td>
-                <td>$183,000</td>
-            </tr>
-            <tr>
-                <td>Michael Bruce</td>
-                <td>Javascript Developer</td>
-                <td>Singapore</td>
-                <td>29</td>
-                <td>2011-06-27</td>
-                <td>$183,000</td>
-            </tr>
-            <tr>
-                <td>Donna Snider</td>
-                <td>Customer Support</td>
-                <td>New York</td>
-                <td>27</td>
-                <td>2011-01-25</td>
-                <td>$112,000</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot>
-    </table>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal
-    </button>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container d-flex align-items-center justify-content-between">
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+      <div class="logo">
+        <h1><a href="index.html"><span>Vaccinely.</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#counts">Data Vaksinasi</a></li>
+          <li><a class="nav-link scrollto" href="#splide1">Info Vaksinasi</a></li>
+          <li><a class="nav-link scrollto" href="#features">Info Faskes</a></li>
+          <li><a class="nav-link scrollto" href="#details">Artikel</a></li>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
+          <div data-aos="zoom-out">
+            <h1>Sukseskan Program Vaksinasi COVID-19 di Kota Banjar dengan <span>Vaccinely.</span></h1>
+            <h2>Lebih baik mencegah daripada mengobati, lebih baik divaksin daripada isolasi mandiri.</h2>
+            <div class="text-center text-lg-start">
+              <a href="#about" class="btn-get-started scrollto">Cek Status Vaksinasi</a>
             </div>
+          </div>
         </div>
+        <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
+          <img src="assets/img/doctor-standing-with-cross-armed-4267686-3543703.png" class="img-fluid animated" alt="">
+        </div>
+      </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap5.min.js"></script>
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+      </g>
+    </svg>
 
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable();
-        });
-    </script>
+  </section><!-- End Hero -->
+
+  <!-- ======= Counts Section ======= -->
+  <section id="counts" class="counts">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-12">
+          <h1 class="text-center" data-aos="fade-up">DATA VAKSINASI PER KECAMATAN</h1>
+        </div>
+      </div>
+      <div class="row" data-aos="fade-up">
+
+        <div class="col-lg-3 col-md-6">
+          <div class="count-box">
+            <i class="bi bi-geo-alt"></i>
+            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+            <b>Banjar</b> <br> <br>
+            <p>
+              Total Vaksinasi 1 : 200 <br>
+              Total Vaksinasi 2 : 200 <br>
+              Total Vaksinasi 3 : 200 <br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+          <div class="count-box">
+            <i class="bi bi-geo-alt"></i>
+            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+            <b>Pataruman</b> <br> <br>
+            <p>
+              Total Vaksinasi 1 : 200 <br>
+              Total Vaksinasi 2 : 200 <br>
+              Total Vaksinasi 3 : 200 <br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+          <div class="count-box">
+            <i class="bi bi-geo-alt"></i>
+            <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
+            <b>Purwaharja</b> <br> <br>
+            <p>
+              Total Vaksinasi 1 : 200 <br>
+              Total Vaksinasi 2 : 200 <br>
+              Total Vaksinasi 3 : 200 <br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+          <div class="count-box">
+            <i class="bi bi-geo-alt"></i>
+            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
+            <b>Langensari</b> <br> <br>
+            <p>
+              Total Vaksinasi 1 : 200 <br>
+              Total Vaksinasi 2 : 200 <br>
+              Total Vaksinasi 3 : 200 <br>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Counts Section -->
+
+  <section class="splide" id="splide1" data-aos="fade-up" aria-label="Splide Basic HTML Example">
+    <div class="section-title container" data-aos="fade-up">
+      <h2>Info</h2>
+      <p>Vaksinasi Sedang Berlangsung</p>
+    </div>
+    <div class="splide__track">
+      <ul class="splide__list">
+        <?php
+        $data = mysqli_query($koneksi, "select * from info_vaksinasi");
+        while ($d = mysqli_fetch_array($data)) {
+        ?>
+          <li class="splide__slide px-3">
+            <div class="card card-margin">
+              <br>
+              <div class="card-body pt-0">
+                <div class="widget-49 mx-3">
+                  <div class="widget-49-title-wrapper">
+                    <div class="widget-49-date-primary">
+                      <i class="bi bi-geo-alt"></i>
+                    </div>
+                    <div class="widget-49-meeting-info">
+                      <span class="widget-49-pro-title"><?php echo $d['tempat']; ?></span>
+                      <span class="widget-49-meeting-time"><?php echo $d['waktu']; ?><br><?php echo $d['tanggal']; ?></span>
+                    </div>
+                  </div>
+                  <p><?php echo $d['keterangan']; ?></p>
+                </div>
+              </div>
+            </div>
+          </li>
+        <?php
+        }
+        ?>
+      </ul>
+    </div>
+  </section>
+
+  <main id="main">
+
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>INFO</h2>
+          <p>Lokasi Fasilitas Kesehatan</p>
+        </div>
+        <div id="groupCollapse">
+          <div class="row" data-aos="fade-left">
+            <div class="col-lg-3 col-md-4">
+              <div class="icon-box" data-aos="zoom-in" data-aos-delay="50">
+                <i class="ri-map-pin-line" style="color: #ffbb2c;"></i>
+                <h3><a data-bs-toggle="collapse" href="#collapseBanjar" role="button" aria-expanded="false" aria-controls="collapseExample">Banjar</a></h3>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+              <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+                <i class="ri-map-pin-line" style="color: #5578ff;"></i>
+                <h3><a data-bs-toggle="collapse" href="#collapsePataruman" role="button" aria-expanded="false" aria-controls="collapseExample2">Pataruman</a></h3>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+              <div class="icon-box" data-aos="zoom-in" data-aos-delay="150">
+                <i class="ri-map-pin-line" style="color: #e80368;"></i>
+                <h3><a data-bs-toggle="collapse" href="#collapsePurwaharja" role="button" aria-expanded="false" aria-controls="collapseExample">Purwaharja</a></h3>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+              <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                <i class="ri-map-pin-line" style="color: #e361ff;"></i>
+                <h3><a data-bs-toggle="collapse" href="#collapseLangensari" role="button" aria-expanded="false" aria-controls="collapseExample">Langensari</a></h3>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="collapse px-3 mt-3" data-bs-parent="#groupCollapse" id="collapseBanjar">
+            <div class="row">
+              <div class="col-lg-12">
+                <section class="splide" id="splide2" aria-label="Splide Basic HTML Example">
+                  <div class="splide__track">
+                    <ul class="splide__list">
+                      <li class="splide__slide">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d699.4779317568587!2d108.50592405109442!3d-7.371296333247664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f61ec18e0f7a5%3A0x7f047d2a6a0cce59!2sPuskesmas%20Banjar%201!5e0!3m2!1sid!2sid!4v1654754297526!5m2!1sid!2sid" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </li>
+                      <li class="splide__slide">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.7113628601105!2d108.48965101432202!3d-7.386206974758024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f61d8c759c64f%3A0xc387fc39cebb2cc!2sPuskesmas%20Banjar%202!5e0!3m2!1sid!2sid!4v1654754352545!5m2!1sid!2sid" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </li>
+                      <li class="splide__slide">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.7898864857493!2d108.53481561432193!3d-7.377430274658645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f626503d81227%3A0x795e7a3511f9c91f!2sBLUD%20UPTD%20Puskesmas%20Banjar%203!5e0!3m2!1sid!2sid!4v1654754385146!5m2!1sid!2sid" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </li>
+                    </ul>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse px-3 mt-3" data-bs-parent="#groupCollapse" id="collapsePataruman">
+            <div class="row">
+              <div class="col-lg-12">
+                <section class="splide" id="splide3" aria-label="Splide Basic HTML Example">
+                  <div class="splide__track">
+                    <ul class="splide__list">
+                      <li class="splide__slide">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.718381844756!2d108.53446761432194!3d-7.385422874749143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f6208261c03e1%3A0xeb30e8e08b3a7376!2sPuskesmas%20Pataruman%201!5e0!3m2!1sid!2sid!4v1654705753246!5m2!1sid!2sid" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </li>
+                      <li class="splide__slide">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.5192736540416!2d108.58408981432227!3d-7.407633475001178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e658846eeb2c9a7%3A0xcbe59bd98d079b20!2sPuskesmas%20Pataruman%202!5e0!3m2!1sid!2sid!4v1654708025478!5m2!1sid!2sid" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </li>
+                      <li class="splide__slide">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.8339991958883!2d108.55493241432191!3d-7.372495174602806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f621839b04a05%3A0x74e530248cfb46a!2sPuskesmas%20Pataruman%203!5e0!3m2!1sid!2sid!4v1654708060193!5m2!1sid!2sid" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </li>
+                    </ul>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+
+          <div class="collapse px-3 mt-3" data-bs-parent="#groupCollapse" id="collapsePurwaharja">
+            <div class="row">
+              <div class="col-lg-12">
+                <section class="splide" id="splide4" aria-label="Splide Basic HTML Example">
+                  <div class="splide__track">
+                    <ul class="splide__list">
+                      <li class="splide__slide">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.950798586069!2d108.53964091432182!3d-7.359412374455012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f6239367a8e37%3A0x54540bc20230b2c5!2sPuskesmas%20Purwaharja!5e0!3m2!1sid!2sid!4v1654755390329!5m2!1sid!2sid" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </li>
+                      <li class="splide__slide">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.959390490594!2d108.5675382143217!3d-7.358449074444117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f6258ab683bd5%3A0x3cf546366260ccaf!2sPuskesmas%20Purwaharja%20II!5e0!3m2!1sid!2sid!4v1654755429932!5m2!1sid!2sid" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </li>
+                    </ul>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div class="collapse px-3 mt-3" data-bs-parent="#groupCollapse" id="collapseLangensari">
+            <div class="row">
+              <div class="col-lg-12">
+                <section class="splide" id="splide5" aria-label="Splide Basic HTML Example">
+                  <div class="splide__track">
+                    <ul class="splide__list">
+                      <li class="splide__slide">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.7529861212993!2d108.60523471432192!3d-7.381555974705327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f62a86a083185%3A0x3ac614d3e7102f3c!2sPUSKESMAS%20LANGENSARI%201!5e0!3m2!1sid!2sid!4v1654755505352!5m2!1sid!2sid" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </li>
+                      <li class="splide__slide">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.964770007079!2d108.63613471432177!3d-7.35784587443735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f7d3e5633084d%3A0x84206be9fad20528!2sBLUD%20UPTD%20PUSKESMAS%20LANGENSARI%202!5e0!3m2!1sid!2sid!4v1654755536332!5m2!1sid!2sid" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </li>
+                    </ul>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Features Section -->
+
+    <!-- ======= Details Section ======= -->
+    <section id="details" class="details">
+      <div class="container">
+
+        <div class="row content">
+          <div class="col-md-4" data-aos="fade-right">
+            <img src="assets/img/details-1.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-8 pt-4" data-aos="fade-up">
+            <div class="section-title container" data-aos="fade-up">
+              <h2>EDUKASI</h2>
+              <p>Artikel</p>
+            </div>
+            <section class="splide" style="padding: 0 !important;" id="artikel" aria-label="Splide Basic HTML Example">
+              <div class="splide__track">
+                <ul class="splide__list">
+                  <li class="splide__slide px-3">
+                    <div class="card">
+                      <img src="assets/img/gallery/gallery-1.jpg" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Transisi Pandemi ke Endemi, COVID-19 segera berakhir?</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="splide__slide px-3">
+                    <div class="card">
+                      <img src="assets/img/gallery/gallery-1.jpg" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Transisi Pandemi ke </h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Details Section -->
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Vaccinely</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!--Jquery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Owl Carousel -->
+  <!-- custom JS code after importing jquery and owl -->
+  <script src="assets/js/splide.min.js"></script>
+  <script src="assets/js/splide-extension-auto-scroll.min.js"></script>
+  <script>
+    var splide = new Splide('#splide1', {
+      perPage: 3,
+      perMove: 1,
+      padding: '10%'
+    });
+    var splide2 = new Splide('#splide2', {
+      focus: 'center',
+      perPage: 2,
+    });
+    var splide3 = new Splide('#splide3', {
+      focus: 'center',
+      perPage: 2,
+    });
+    var splide4 = new Splide('#splide4', {
+      focus: 'center',
+      perPage: 2,
+    });
+    var splide5 = new Splide('#splide5', {
+      focus: 'center',
+      perPage: 2,
+    });
+    var artikel = new Splide('#artikel', {
+      type: 'loop',
+      drag: 'free',
+      focus: 'center',
+      perPage: 3,
+      autoScroll: {
+        speed: 2,
+      },
+    });
+
+    splide.mount();
+    splide2.mount();
+    splide3.mount();
+    splide4.mount();
+    splide5.mount();
+    artikel.mount(window.splide.Extensions);
+  </script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>
