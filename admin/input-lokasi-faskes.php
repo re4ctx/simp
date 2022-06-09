@@ -67,7 +67,7 @@ include 'template/header.php';
                                         Dosis Vaksin 2 : 50 (AstraZenaca)
                                     </td> -->
                                     <td class="align-middle">
-                                        <a href="" class="btn btn-icon btn-1 btn-info" type="button">
+                                        <a href="edit-lokasi-faskes.php?id=<?php echo $d['id_faskes']; ?>" class="btn btn-icon btn-1 btn-info" type="button">
                                             <span class="btn-inner--icon"><i class="ni ni-ruler-pencil"></i></span>
                                         </a>
                                         <a href="controller/lokasi_faskes/hapus.php?id=<?php echo $d['id_faskes']; ?>" class="btn btn-icon btn-1 btn-danger" type="button">

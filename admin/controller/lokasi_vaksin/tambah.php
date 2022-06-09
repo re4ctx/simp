@@ -11,6 +11,6 @@ $waktu = $start . ' s.d.' . $end;
 
 mysqli_query($koneksi,"insert into info_vaksinasi values('','$tempat','$tanggal','$waktu', '$keterangan')");
 
-header("location:../../input-lokasi-vaksin.php");
+header("location:../../input-lokasi-vaksin.php?add=success");
 
 ?>
