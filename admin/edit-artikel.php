@@ -4,10 +4,7 @@
 
 <!-- include summernote css-->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- include summernote js-->
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-
+    
 <?php
 include 'template/header.php';
 ?>
@@ -73,42 +70,44 @@ include 'template/header.php';
 <?php
 include 'template/footer.php';
 ?>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- include summernote js-->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
-<!-- Script -->
-<script type="text/javascript">
-        $('#makeMeSummernote').summernote({
-            placeholder: 'Type here',
-        tabsize: 2,
-        height: 120,
-        toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'underline', 'clear']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-          ['table', ['table']],
-          ['view', ['fullscreen', 'codeview', 'help']]
-        ]
+    <!-- Script -->
+    <script type="text/javascript">
+            $('#makeMeSummernote').summernote({
+                placeholder: 'Type here',
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+            ]
         });
     </script>
 
 <!-- jangan lupa menambahkan script js sweet alert di bawah ini  -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
 
-<!-- jika ada session sukses maka tampilkan sweet alert dengan pesan yang telah di set
-    di dalam session sukses  -->
+<!-- sweet alert sukses  -->
     <?php if(@$_SESSION['sukses']){ ?>
         <script>
             swal("Berhasil!", "<?php echo $_SESSION['sukses']; ?>", "success");
         </script>
-    <!-- jangan lupa untuk menambahkan unset agar sweet alert tidak muncul lagi saat di refresh -->
     <?php unset($_SESSION['sukses']); } ?>
 
+<!-- gagal -->
     <?php if(@$_SESSION['gagal']){ ?>
         <script>
             swal("Gagal!", "<?php echo $_SESSION['gagal']; ?>", "gagal");
         </script>
-    <!-- jangan lupa untuk menambahkan unset agar sweet alert tidak muncul lagi saat di refresh -->
     <?php unset($_SESSION['gagal']); } ?>
 
 <script>

@@ -2,9 +2,7 @@
  
 <!-- include summernote css-->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- include summernote js-->
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    
 
 <?php session_start(); ?>
 
@@ -100,20 +98,24 @@ include 'template/header.php';
 include 'template/footer.php';
 ?>
 
-<!-- Script -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- include summernote js-->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <!-- Script -->
     <script type="text/javascript">
         $('#makeMeSummernote').summernote({
             placeholder: 'Type here',
-        tabsize: 2,
-        height: 120,
-        toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'underline', 'clear']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-          ['table', ['table']],
-          ['view', ['fullscreen', 'codeview', 'help']]
-        ]
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['view', ['codeview', 'help']]
+            ]
         });
     </script>
 
@@ -121,27 +123,24 @@ include 'template/footer.php';
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
         
-<!-- jika ada session sukses maka tampilkan sweet alert dengan pesan yang telah di set
-    di dalam session sukses  -->
+<!-- sweet alert sukses  -->
     <?php if(@$_SESSION['sukses']){ ?>
         <script>
             swal("Berhasil!", "<?php echo $_SESSION['sukses']; ?>", "success");
         </script>
-    <!-- jangan lupa untuk menambahkan unset agar sweet alert tidak muncul lagi saat di refresh -->
     <?php unset($_SESSION['sukses']); } ?>
 
-    <!-- gagal -->
+<!-- gagal -->
     <?php if(@$_SESSION['gagal']){ ?>
         <script>
             swal("Gagal!", "<?php echo $_SESSION['gagal']; ?>", "error");
         </script>
-    <!-- jangan lupa untuk menambahkan unset agar sweet alert tidak muncul lagi saat di refresh -->
     <?php unset($_SESSION['gagal']); } ?>
 
-    <!-- jangan lupa menambahkan script js sweet alert di bawah ini  -->
+<!-- jangan lupa menambahkan script js sweet alert di bawah ini  -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.7/dist/sweetalert2.all.min.js"></script>
 
-    <!-- hapus  -->
+<!-- hapus  -->
         <?php if(@$_SESSION['hapus']){ ?>
             <script>
                 Swal.fire({            
@@ -155,7 +154,7 @@ include 'template/footer.php';
         <?php unset($_SESSION['hapus']); } ?>
     
     
-        <!-- di bawah ini adalah script untuk konfirmasi hapus data dengan sweet alert  -->
+<!-- di bawah ini adalah script untuk konfirmasi hapus data dengan sweet alert  -->
         <script>
             $('.alert_notif').on('click',function(){
                 var getLink = $(this).attr('href');
