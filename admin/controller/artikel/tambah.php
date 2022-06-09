@@ -1,9 +1,14 @@
 <?php
+ 
 
     if (isset($_POST['btn_tambah'])) {
         //Include file koneksi, untuk koneksikan ke database
         include '../../../config/config.php';
         //Cek apakah ada kiriman form dari method post
+        
+       //gunakan fungsi di bawah ini agar session bisa dibuat
+    session_start();
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $judul = $_POST['judul'];
@@ -26,11 +31,17 @@
 
                     $simpan_gbr=mysqli_query($koneksi,$sql);
 
+                    
+    
                     if ($simpan_gbr) {
-                        header("Location:../../input-artikel.php?add=berhasil");
+                        //set session sukses
+                        $_SESSION["sukses"] = 'Data Berhasil Disimpan';
+                        header("Location:../../input-artikel.php");
+                        
                     }
                     else {
-                        header("Location:../../input-artikel.php?add=gagal");
+                        $_SESSION["gagal"] = 'Data Gagal Disimpan';
+                        header("Location:../../input-artikel.php");
                     }
                     
                 }

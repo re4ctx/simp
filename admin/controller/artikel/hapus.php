@@ -1,6 +1,7 @@
 <?php
     include '../../../config/config.php';
 
+    session_start();
 
     $id_artikel=$_GET["id_artikel"];
     $judul=$_GET["judul"];
@@ -13,10 +14,13 @@
     unlink("gambar/".$gambar);
 
     if ($hapus_gbr) {
-        header("Location:../../input-artikel.php?hapus=berhasil");
+        //set session hapus
+        $_SESSION["hapus"] = 'Data Berhasil Dihapus';
+        header("Location:../../input-artikel.php");
     }
     else {
-        header("Location:../../input-artikel.php?hapus=gagal");
+        $_SESSION["gagal"] = 'Data Gagal Dihapus';
+        header("Location:../../input-artikel.php");
 
     }
 ?>

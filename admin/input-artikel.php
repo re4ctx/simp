@@ -1,33 +1,22 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css" rel="stylesheet"></link>
+ 
+<!-- include summernote css-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- include summernote js-->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+<?php session_start(); ?>
+
 <?php
 include 'template/header.php';
 ?>
-
-<?php
-        //Validasi untuk menampilkan pesan pemberitahuan
-        if (isset($_GET['add'])) {
-      
-            if ($_GET['add']=='berhasil'){
-                echo"<div class='alert alert-success'><strong>Berhasil!</strong> File gambar telah diupload!</div>";
-            }else if ($_GET['add']=='gagal'){
-                echo"<div class='alert alert-danger'><strong>Gagal!</strong> File gambar gagal diupload!</div>";
-            }    
-        }
-
-        if (isset($_GET['hapus'])) {
-    
-            if ($_GET['hapus']=='berhasil'){
-                echo"<div class='alert alert-success'><strong>Berhasil!</strong> File gambar telah dihapus!</div>";
-            }else if ($_GET['hapus']=='gagal'){
-                echo"<div class='alert alert-danger'><strong>Gagal!</strong> File gambar gagal dihapus!</div>";
-            }    
-        }
-        ?>
 
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-6">
             <h4>Input Artikel</h4>
-            <form method="post" action="controller/artikel/tambah.php" enctype="multipart/form-data">
+            <form id="postForm" method="post" action="controller/artikel/tambah.php" enctype="multipart/form-data" onsubmit="return postForm()">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Judul</label>
                     <input type="text" name="judul" class="form-control" id="exampleFormControlInput1" placeholder="-" required>
@@ -36,12 +25,11 @@ include 'template/header.php';
                     <label for="exampleFormControlTextarea1">Upload Gambar</label>
                     <input type="file" class="form-control" id="uploadImage1"  onchange="PreviewImage(1)" name='gambar' required>
                     <br>
-                    <img src="controller/artikel/gambar/<?php echo $d['gambar']; ?>" id="uploadPreview1" width="585" height="330">
-                </div>
-                
+                    <img  class="img-thumbnail" id="uploadPreview1"  width="585" height="330">
+                </div>    
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Konten</label>
-                    <textarea class="form-control" name="konten" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                    <textarea class="form-control" name="konten" id="makeMeSummernote" rows="4" required></textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit" name="btn_tambah" class="btn btn-primary">Tambah</button>
@@ -81,20 +69,16 @@ include 'template/header.php';
                                         </div>
                                     </td>
                                     <td>
-                                        <img class="text-sm font-weight-bold mb-0" src="controller/artikel/gambar/<?php echo $d['gambar']; ?>" width="58.5" height="33">
+                                        <img  class="text-sm font-weight-bold mb-0" src="controller/artikel/gambar/<?php echo $d['gambar']; ?>" width="58.5" height="33">
                                     </td>
                                     <td>
                                         <p class="text-sm font-weight-bold mb-0"><?php echo $d['konten']; ?></p>
                                     </td>
-                                    <!-- <td>
-                                        Dosis Vaksin 1 : 100 (Sinovac)
-                                        Dosis Vaksin 2 : 50 (AstraZenaca)
-                                    </td> -->
                                     <td class="align-middle">
                                         <a href="edit-artikel.php?id_artikel=<?php echo $d['id_artikel']; ?>" class="btn btn-icon btn-1 btn-info" type="button">
                                             <span class="btn-inner--icon"><i class="ni ni-ruler-pencil"></i></span>
                                         </a>
-                                        <a href="controller/artikel/hapus.php?id_artikel=<?php echo $d['id_artikel']; ?>" class="btn btn-icon btn-1 btn-danger" type="button" onclick="konfirmasi()">
+                                        <a href="controller/artikel/hapus.php?id_artikel=<?php echo $d['id_artikel']; ?>" class="btn btn-icon btn-1 btn-danger alert_notif">
                                             <span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span>
                                         </a>
                                     </td>
@@ -116,12 +100,85 @@ include 'template/header.php';
 include 'template/footer.php';
 ?>
 
-<script>
+<!-- Script -->
+    <script type="text/javascript">
+        $('#makeMeSummernote').summernote({
+            placeholder: 'Type here',
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+        });
+    </script>
 
-    function konfirmasi(){
-        konfirmasi=confirm("Apakah anda yakin ingin menghapus gambar ini?")
-        document.writeln(konfirmasi)
-    }
+<!-- jangan lupa menambahkan script js sweet alert di bawah ini  -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+        
+<!-- jika ada session sukses maka tampilkan sweet alert dengan pesan yang telah di set
+    di dalam session sukses  -->
+    <?php if(@$_SESSION['sukses']){ ?>
+        <script>
+            swal("Berhasil!", "<?php echo $_SESSION['sukses']; ?>", "success");
+        </script>
+    <!-- jangan lupa untuk menambahkan unset agar sweet alert tidak muncul lagi saat di refresh -->
+    <?php unset($_SESSION['sukses']); } ?>
+
+    <!-- gagal -->
+    <?php if(@$_SESSION['gagal']){ ?>
+        <script>
+            swal("Gagal!", "<?php echo $_SESSION['gagal']; ?>", "error");
+        </script>
+    <!-- jangan lupa untuk menambahkan unset agar sweet alert tidak muncul lagi saat di refresh -->
+    <?php unset($_SESSION['gagal']); } ?>
+
+    <!-- jangan lupa menambahkan script js sweet alert di bawah ini  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.7/dist/sweetalert2.all.min.js"></script>
+
+    <!-- hapus  -->
+        <?php if(@$_SESSION['hapus']){ ?>
+            <script>
+                Swal.fire({            
+                    icon: 'success',                   
+                    title: 'Hapus',    
+                    text: 'data berhasil dihapus',                        
+                    timer: 3000,                                
+                    showConfirmButton: false
+                })
+            </script>
+        <?php unset($_SESSION['hapus']); } ?>
+    
+    
+        <!-- di bawah ini adalah script untuk konfirmasi hapus data dengan sweet alert  -->
+        <script>
+            $('.alert_notif').on('click',function(){
+                var getLink = $(this).attr('href');
+                Swal.fire({
+                    title: "Apakah anda yakin ingin menghapus data?",            
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: 'Ya',
+                    cancelButtonColor: '#3085d6',
+                    cancelButtonText: "Batal"
+                
+                }).then(result => {
+                    //jika klik ya maka arahkan ke proses.php
+                    if(result.isConfirmed){
+                        window.location.href = getLink
+                    }
+                })
+                return false;
+            });
+        </script>
+
+<script>
 
     $(document).on("click", "#pilih_gambar", function() {
     var file = $(this).parents().find(".file");
@@ -153,4 +210,5 @@ include 'template/footer.php';
     }
 
 </script>
+
 

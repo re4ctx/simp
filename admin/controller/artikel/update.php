@@ -3,6 +3,9 @@ if (isset($_POST['btn_edit'])) {
     //Include file koneksi, untuk koneksikan ke database
     include '../../../config/config.php';
     //Cek apakah ada kiriman form dari method post
+
+    session_start();
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $id_artikel=$_POST["id_artikel"];
@@ -71,7 +74,7 @@ if (isset($_POST['btn_edit'])) {
                 if($sql){ // Cek jika proses simpan ke database sukses atau tidak
 
                     // Jika Sukses, Lakukan :
-
+                    $_SESSION["sukses"] = 'Data Berhasil Diubah';
                     header("location:../../input-artikel.php"); // Redirect ke halaman index.php
 
                 }else{
@@ -100,7 +103,7 @@ if (isset($_POST['btn_edit'])) {
 
             // Proses ubah data ke Database
 
-            $query = "update user set judul='$judul' konten='$konten' where id_artikel='$id_artikel' ";
+            $query = "update artikel set judul='$judul', konten='$konten' where id_artikel='$id_artikel' ";
 
             $sql = mysqli_query($koneksi, $query); // Eksekusi/ Jalankan query dari variabel $query
 
@@ -109,7 +112,7 @@ if (isset($_POST['btn_edit'])) {
             if($sql){ // Cek jika proses simpan ke database sukses atau tidak
 
                 // Jika Sukses, Lakukan :
-
+                $_SESSION["sukses"] = 'Data Berhasil Diubah';
                 header("location:../../input-artikel.php"); // Redirect ke halaman index.php
 
             }else{
