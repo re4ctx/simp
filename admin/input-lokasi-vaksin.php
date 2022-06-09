@@ -1,81 +1,27 @@
+<?php session_start(); ?>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css"></link>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+
 <?php
 include 'template/header.php';
 ?>
 
-<?php
-// Allert Tambah Data
-if (isset($_GET['add'])) {
-    if ($_GET['add']=='success'){
-        echo'<div class="alert alert-success d-flex align-items-center" role="alert">
-                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-                </symbol>
-                <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-                </symbol>
-                <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                </symbol>
-                </svg>
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                <div>
-                    Data berhasil disimpan!
-                </div>
-                </div>';
-        echo'<meta http-equiv="refresh" content="3;url=input-lokasi-vaksin.php">';
-    }   
-}
+<!-- Alert Tambah Data -->
+<?php if(@$_SESSION['sukses']){?>
+    <script>
+        swal("Berhasil!", "<?php echo $_SESSION['sukses']; ?>", "success");
+    </script>
+<?php unset($_SESSION['sukses']);}?>
 
-// Allert Hapus Data
-if (isset($_GET['delete'])) {
-    if ($_GET['delete']=='success'){
-        echo'<div class="alert alert-success d-flex align-items-center" role="alert">
-                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-                </symbol>
-                <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-                </symbol>
-                <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                </symbol>
-                </svg>
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                <div>
-                    Data berhasil dihapus!
-                </div>
-                </div>';
-        echo'<meta http-equiv="refresh" content="3;url=input-lokasi-vaksin.php">';
-    }  
-}
-
-// Allert Edit Data
-if (isset($_GET['update'])) {
-    if ($_GET['update']=='success'){
-        echo'<div class="alert alert-success d-flex align-items-center" role="alert">
-                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-                </symbol>
-                <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-                </symbol>
-                <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                </symbol>
-                </svg>
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                <div>
-                    Data berhasil diedit!
-                </div>
-                </div>';
-        echo'<meta http-equiv="refresh" content="3;url=input-lokasi-vaksin.php">';
-    }  
-}
-?>
-
+<!-- Alert Edit Data -->
+<?php if(@$_SESSION['sukses']){?>
+    <script>
+        swal("Berhasil!", "<?php echo $_SESSION['sukses']; ?>", "success");
+    </script>
+<?php unset($_SESSION['sukses']);}?>
 
 <div class="container-fluid py-4">
     <div class="row">
@@ -84,26 +30,26 @@ if (isset($_GET['update'])) {
             <form method="post" action="controller/lokasi_vaksin/tambah.php">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Tempat</label>
-                    <input type="text" name="tempat" class="form-control" id="exampleFormControlInput1" placeholder="Silakan masukkan nama tempat" required>
+                    <input type="text" name="tempat" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan nama tempat" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Tanggal</label>
-                    <input class="form-control datepicker" placeholder="Silakan tentukan tanggal" type="text" name="tanggal" onfocus="focused(this)" onfocusout="defocused(this)" required>
+                    <input class="form-control datepicker" placeholder="Tentukan tanggal" type="text" name="tanggal" onfocus="focused(this)" onfocusout="defocused(this)" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Waktu Mulai</label>
-                    <input class="form-control time" placeholder="Silakan tentukan waktu mulai" type="text" name="start" onfocus="focused(this)" onfocusout="defocused(this)" required>
+                    <input class="form-control time" placeholder="Tentukan waktu mulai" type="text" name="start" onfocus="focused(this)" onfocusout="defocused(this)" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Waktu Selesai</label>
-                    <input class="form-control time" placeholder="Silakan tentukan waktu selesai" type="text" name="end" onfocus="focused(this)" onfocusout="defocused(this)" required>
+                    <input class="form-control time" placeholder="Tentukan waktu selesai" type="text" name="end" onfocus="focused(this)" onfocusout="defocused(this)" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Keterangan</label>
-                    <textarea class="form-control" name="keterangan" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" name="keterangan" id="makeMeSummernote" rows="3" required></textarea>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary" onclick="return confirm('Yakin data yang dimasukkan sudah benar?')">Tambah</button>
+                    <button type="submit" class="btn btn-primary">Tambah</button>
                 </div>
             </form>
         </div>
@@ -157,12 +103,10 @@ if (isset($_GET['update'])) {
                                             </p>
                                         </td>
                                         <td class="align-middle">
-                                            <a href="edit-lokasi-vaksin.php?id=<?php echo $d['id_vaksinasi']; ?>" class="btn btn-icon btn-1 btn-info" type="button"
-                                            onclick="return confirm('Yakin akan mengedit data?')">
+                                            <a href="edit-lokasi-vaksin.php?id=<?php echo $d['id_vaksinasi']; ?>" class="btn btn-icon btn-1 btn-info" type="button">
                                                 <span class="btn-inner--icon"><i class="ni ni-ruler-pencil"></i></span>
                                             </a>
-                                            <a href="controller/lokasi_vaksin/hapus.php?id=<?php echo $d['id_vaksinasi']; ?>" class="btn btn-icon btn-1 btn-danger" type="button"
-                                            onclick="return confirm('Yakin akan menghapus data?')">
+                                            <a href="controller/lokasi_vaksin/hapus.php?id=<?php echo $d['id_vaksinasi']; ?>" class="btn btn-icon btn-1 btn-danger alert_notif" type="button">
                                                 <span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span>
                                             </a>
                                         </td>
@@ -176,9 +120,64 @@ if (isset($_GET['update'])) {
                 </div>
             </div>
         </div>
-
     </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.7/dist/sweetalert2.all.min.js"></script>
+
+<script type="text/javascript">
+    $('#makeMeSummernote').summernote({
+        placeholder: 'Tambahkan keterangan',
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+    });
+</script>
+
+<!-- Alert Hapus Data -->
+<?php if(@$_SESSION['hapus']){?>
+    <script>
+        Swal.fire({            
+            icon: 'success',                   
+            title: 'Berhasil!',    
+            text: 'Data Berhasil Dihapus',                        
+            timer: 3000,                                
+            showConfirmButton: false
+        })
+    </script>
+<?php unset($_SESSION['hapus']);}?>
+
+<!-- Alert Konfirmasi Hapus Data -->
+<script>
+    $('.alert_notif').on('click',function(){
+        var getLink = $(this).prop('href');
+        Swal.fire({
+            title: "Apakah Anda Yakin Ingin Menghapus Data?",            
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#EA0606',
+            confirmButtonText: 'Ya',
+            cancelButtonColor: '#17C1E8',
+            cancelButtonText: "Batal"
+        
+        }).then(result => {
+            //jika klik ya maka arahkan ke proses.php
+            if(result.isConfirmed){
+                window.location.href = getLink
+            }
+        })
+        return false;
+    });
+</script>
 
 <?php
 include 'template/footer.php';

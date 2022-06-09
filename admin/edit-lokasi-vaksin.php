@@ -2,6 +2,8 @@
 include 'template/header.php';
 ?>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" />
+
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-6">
@@ -32,10 +34,11 @@ include 'template/header.php';
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Keterangan</label>
-                        <textarea class="form-control" name="keterangan" id="exampleFormControlTextarea1" rows="3"><?php echo $d['keterangan']; ?></textarea>
+                        <textarea class="form-control" name="keterangan" id="makeMeSummernote" rows="3"><?php echo $d['keterangan']; ?></textarea>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary" onclick="return confirm('Yakin semua data sudah benar?')">Edit</button>
+                        <button type="submit" name="btn_edit" class="btn btn-primary">Edit</button>
+                        <a href="input-lokasi-vaksin.php" class="btn btn-primary">Kembali</a>
                     </div>
                 </form>
                 <?php
@@ -44,6 +47,25 @@ include 'template/header.php';
         </div>
     </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+<script type="text/javascript">
+    $('#makeMeSummernote').summernote({
+        placeholder: 'Type here',
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+    });
+</script>
 
 <?php
 include 'template/footer.php';
